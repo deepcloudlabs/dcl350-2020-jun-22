@@ -1,17 +1,31 @@
 package com.example.hr.dto;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import com.example.hr.domain.Department;
 import com.example.hr.domain.Employee;
 import com.example.hr.domain.MoneyCurrency;
+import com.example.validation.Iban;
+import com.example.validation.TcKimlikNo;
 
 public class EmployeeRequest {
+	@TcKimlikNo
 	private String identity;
+	@Size(min=6)
 	private String fullname;
+	@Min(3_000)
 	private double salary;
+	@Iban
 	private String iban;
 	private boolean fulltime;
+	@Max(2002)
 	private int birthYear;
+	@NotNull
 	private byte[] photo;
+	@NotNull
 	private Department department;
 
 	public EmployeeRequest() {
