@@ -12,10 +12,9 @@ import com.example.hr.repository.EmployeeRepository;
 public class AppConfig {
 
 	@Bean
-	public EmployeeApplication employeeApplication(
-			EmployeeRepository employeeRepository,
+	public EmployeeApplication employeeApplication(EmployeeRepository employeeRepository,
 			EventPushlisher eventPushlisher) {
-		SimpleEmployeeApplication employeeApplication= new SimpleEmployeeApplication();
+		SimpleEmployeeApplication employeeApplication = new SimpleEmployeeApplication();
 		employeeApplication.setEmployeeRepository(employeeRepository);
 		employeeApplication.setEventPushlisher(eventPushlisher);
 		return employeeApplication;

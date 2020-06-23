@@ -11,7 +11,7 @@ public class EventPuslisherAdapter implements EventPushlisher {
 	@Override
 	public void publishEvent(BusinessEvent event) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

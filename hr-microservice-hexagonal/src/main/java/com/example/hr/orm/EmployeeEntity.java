@@ -1,20 +1,33 @@
-package com.example.hr.dto;
+package com.example.hr.orm;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
 
 import com.example.hr.domain.Department;
-import com.example.hr.domain.Employee;
-import com.example.hr.domain.MoneyCurrency;
 
-public class EmployeeRequest {
+@Entity
+@Table(name = "employees")
+public class EmployeeEntity {
+	@Id
+	@Column(name = "identity")
 	private String identity;
 	private String fullname;
 	private double salary;
 	private String iban;
 	private boolean fulltime;
 	private int birthYear;
+	@Lob
+	@Column(columnDefinition = "longblob")
 	private byte[] photo;
+	@Enumerated(EnumType.STRING)
 	private Department department;
 
-	public EmployeeRequest() {
+	public EmployeeEntity() {
 	}
 
 	public String getIdentity() {
@@ -82,15 +95,34 @@ public class EmployeeRequest {
 	}
 
 	@Override
-	public String toString() {
-		return "EmployeeRequest [identity=" + identity + ", fullname=" + fullname + ", salary=" + salary + ", iban="
-				+ iban + ", fulltime=" + fulltime + ", birthYear=" + birthYear + ", department=" + department + "]";
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((identity == null) ? 0 : identity.hashCode());
+		return result;
 	}
 
-	public Employee toEmployee() {
-		String[] tokens = fullname.split("\\w+");
-		return new Employee.Builder(identity).fullname(tokens[0], tokens[1]).iban(iban).salary(salary, MoneyCurrency.TL)
-				.birthYear(birthYear).fulltime(fulltime).department(department).photo(photo).build();
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		EmployeeEntity other = (EmployeeEntity) obj;
+		if (identity == null) {
+			if (other.identity != null)
+				return false;
+		} else if (!identity.equals(other.identity))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "EmployeeEntity [identity=" + identity + ", fullname=" + fullname + ", salary=" + salary + ", iban="
+				+ iban + ", fulltime=" + fulltime + ", birthYear=" + birthYear + ", department=" + department + "]";
 	}
 
 }

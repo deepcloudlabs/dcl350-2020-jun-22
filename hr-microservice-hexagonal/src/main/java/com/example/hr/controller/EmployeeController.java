@@ -19,10 +19,10 @@ import com.example.hr.dto.EmployeeResponse;
 public class EmployeeController {
 	@Autowired
 	private EmployeeApplication employeeApplication;
-	
+
 	@PostMapping
 	public EmployeeResponse hireEmployee(@RequestBody EmployeeRequest request) {
-		employeeApplication.hireEmployee(null);
-		return null;
+		employeeApplication.hireEmployee(request.toEmployee());
+		return new EmployeeResponse("success");
 	}
 }
