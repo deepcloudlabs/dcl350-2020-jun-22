@@ -4,7 +4,7 @@ import com.example.hr.domain.Employee;
 
 public interface EmployeeApplication {
 
-	void hireEmployee(Employee employee);
+	boolean hireEmployee(Employee employee);
 
 	void fireEmployee(Employee employee);
 

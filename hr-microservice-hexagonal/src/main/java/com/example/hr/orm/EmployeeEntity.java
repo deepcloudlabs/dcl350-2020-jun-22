@@ -7,10 +7,11 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
-import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.DynamicUpdate;
 
 import com.example.hr.domain.Department;
 import com.example.validation.Iban;
@@ -18,19 +19,21 @@ import com.example.validation.TcKimlikNo;
 
 @Entity
 @Table(name = "employees")
+@DynamicUpdate
 public class EmployeeEntity {
 	@Id
 	@Column(name = "identity")
 	@TcKimlikNo
 	private String identity;
-	@Size(min=5)
+	@Size(min = 5)
 	private String fullname;
 	@Min(3_000)
-	private double salary;
+	//@Column(columnDefinition = "float default 1000")
+	private Double salary;
 	@Iban
 	private String iban;
-	//@AssertTrue
-	private boolean fulltime;
+	// @AssertTrue
+	private Boolean fulltime;
 	@Max(2002)
 	private int birthYear;
 	@Lob

@@ -20,9 +20,10 @@ public class SimpleEmployeeApplication implements EmployeeApplication {
 	}
 
 	@Override
-	public void hireEmployee(Employee employee) {
+	public boolean hireEmployee(Employee employee) {
 		employeeRepository.save(employee);
 		eventPushlisher.publishEvent(new EmployeeHiredEvent("", "employees", employee));
+		return true;
 	}
 
 	@Override
