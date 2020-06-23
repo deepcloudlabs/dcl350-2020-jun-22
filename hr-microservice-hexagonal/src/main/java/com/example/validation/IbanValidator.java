@@ -3,6 +3,11 @@ package com.example.validation;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public class IbanValidator implements ConstraintValidator<Iban, String> {
 	private static final long MAX = 999999999;
 	private static final long MODULUS = 97;

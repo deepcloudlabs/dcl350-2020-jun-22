@@ -3,6 +3,11 @@ package com.example.validation;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public class TcKimlikNoValidator implements ConstraintValidator<TcKimlikNo, String> {
 
 	@Override

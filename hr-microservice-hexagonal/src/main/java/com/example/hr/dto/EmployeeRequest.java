@@ -6,15 +6,18 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.example.hr.domain.Department;
-import com.example.hr.domain.Employee;
-import com.example.hr.domain.MoneyCurrency;
 import com.example.validation.Iban;
 import com.example.validation.TcKimlikNo;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public class EmployeeRequest {
 	@TcKimlikNo
 	private String identity;
-	@Size(min=6)
+	@Size(min = 6)
 	private String fullname;
 	@Min(3_000)
 	private double salary;
@@ -99,12 +102,6 @@ public class EmployeeRequest {
 	public String toString() {
 		return "EmployeeRequest [identity=" + identity + ", fullname=" + fullname + ", salary=" + salary + ", iban="
 				+ iban + ", fulltime=" + fulltime + ", birthYear=" + birthYear + ", department=" + department + "]";
-	}
-
-	public Employee toEmployee() {
-		String[] tokens = fullname.split("\\w+");
-		return new Employee.Builder(identity).fullname(tokens[0], tokens[1]).iban(iban).salary(salary, MoneyCurrency.TL)
-				.birthYear(birthYear).fulltime(fulltime).department(department).photo(photo).build();
 	}
 
 }

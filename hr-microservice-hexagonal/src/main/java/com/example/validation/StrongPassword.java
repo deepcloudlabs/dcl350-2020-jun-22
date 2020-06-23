@@ -10,6 +10,11 @@ import javax.validation.Payload;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Target({ ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 @Pattern.List({ @Pattern(regexp = "^.*\\d+.*$", message = "{validation.strongPassword2}"),

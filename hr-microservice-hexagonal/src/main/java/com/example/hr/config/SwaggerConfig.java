@@ -19,6 +19,11 @@ import springfox.documentation.spring.web.paths.RelativePathProvider;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig implements WebMvcConfigurer {

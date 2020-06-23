@@ -12,6 +12,11 @@ import com.example.hr.orm.EmployeeEntity;
 import com.example.hr.repository.EmployeeJpaRepository;
 import com.example.hr.repository.EmployeeRepository;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Repository
 public class EmployeeRepositoryAdapter implements EmployeeRepository {
 	@Autowired

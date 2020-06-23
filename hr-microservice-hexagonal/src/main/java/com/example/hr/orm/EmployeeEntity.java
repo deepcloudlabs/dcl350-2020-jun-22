@@ -17,6 +17,11 @@ import com.example.hr.domain.Department;
 import com.example.validation.Iban;
 import com.example.validation.TcKimlikNo;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Entity
 @Table(name = "employees")
 @DynamicUpdate
@@ -28,7 +33,7 @@ public class EmployeeEntity {
 	@Size(min = 5)
 	private String fullname;
 	@Min(3_000)
-	//@Column(columnDefinition = "float default 1000")
+	// @Column(columnDefinition = "float default 1000")
 	private Double salary;
 	@Iban
 	private String iban;

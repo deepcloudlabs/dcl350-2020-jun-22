@@ -1,5 +1,10 @@
 package com.example.hr.dto;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public class EmployeeResponse {
 	private String status;
 

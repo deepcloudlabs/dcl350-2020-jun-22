@@ -8,6 +8,11 @@ import com.example.hr.application.business.SimpleEmployeeApplication;
 import com.example.hr.infrastructure.EventPushlisher;
 import com.example.hr.repository.EmployeeRepository;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Configuration
 public class AppConfig {
 

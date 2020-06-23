@@ -8,6 +8,11 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Target({ ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = IbanValidator.class)

@@ -9,6 +9,11 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.constraints.Pattern;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Target({ ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 @Pattern(regexp = "^\\+?[a-z0-9](([-+.]|[_]+)?[a-z0-9]+)*@([a-z0-9]+(\\.|\\-))+[a-z]{2,6}$", message = "{validation.email}")
