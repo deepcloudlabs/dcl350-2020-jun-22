@@ -1,5 +1,10 @@
 package com.example.hr.events;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public class BusinessEvent {
 	private final String eventId;
 	private final String topic;

@@ -1,5 +1,10 @@
 package com.example.hr.domain;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 // Value Object, Immutable
 public final class BirthYear {
 	private final int value;

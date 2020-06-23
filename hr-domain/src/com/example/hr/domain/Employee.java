@@ -1,5 +1,10 @@
 package com.example.hr.domain;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 // DDD : Core Domain -> Entity Root -> Aggregate
 // Ubiquitous Language: Entity, Entity Root/Aggregate/Value Object 
 // Bounded Context <--> Sub Domain

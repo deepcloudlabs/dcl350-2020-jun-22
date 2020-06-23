@@ -1,5 +1,10 @@
 package com.example.hr.domain;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 // Value Object, Immutable
 public class Money {
 	private final double value;
@@ -57,7 +62,7 @@ public class Money {
 	}
 
 	public Money multiply(double percentage) {
-		return Money.of(this.value*(1. + percentage / 100. ), currency);
+		return Money.of(this.value * (1. + percentage / 100.), currency);
 	}
 
 	public boolean lessThan(Money minSalary) {

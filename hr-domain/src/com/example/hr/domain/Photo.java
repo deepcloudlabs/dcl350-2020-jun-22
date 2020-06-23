@@ -2,6 +2,11 @@ package com.example.hr.domain;
 
 import java.util.Objects;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 // Value Object
 public final class Photo {
 	private final byte[] value;

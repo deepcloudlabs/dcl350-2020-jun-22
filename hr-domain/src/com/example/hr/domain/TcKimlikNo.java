@@ -1,5 +1,10 @@
 package com.example.hr.domain;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 // Value Object (DDD) --> Immutable --> Effective Java
 public final class TcKimlikNo {
 	private final String value;
@@ -81,5 +86,5 @@ public final class TcKimlikNo {
 	public String toString() {
 		return "TcKimlikNo [value=" + value + "]";
 	}
-	
+
 }
