@@ -1,11 +1,17 @@
 package com.example.hr.application;
 
 import com.example.hr.domain.Employee;
+import com.example.hr.domain.TcKimlikNo;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public interface EmployeeApplication {
 
 	boolean hireEmployee(Employee employee);
 
-	void fireEmployee(Employee employee);
+	boolean fireEmployee(TcKimlikNo identity);
 
 }

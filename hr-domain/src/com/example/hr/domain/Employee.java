@@ -37,7 +37,7 @@ public class Employee {
 		this.department = department;
 	}
 
-	public Employee(Builder builder) {
+	private Employee(Builder builder) {
 		this.identityNo = builder.identityNo;
 		this.fullname = builder.fullname;
 		this.salary = builder.salary;
