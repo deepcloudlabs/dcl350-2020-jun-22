@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import com.example.hr.domain.Employee;
 import com.example.hr.domain.FullName;
 import com.example.hr.domain.TcKimlikNo;
+import com.example.hr.meta.Persistence;
+import com.example.hr.meta.PersistenceTarget;
 import com.example.hr.orm.EmployeeEntity;
 import com.example.hr.repository.EmployeeJpaRepository;
 import com.example.hr.repository.EmployeeRepository;
@@ -18,7 +20,8 @@ import com.example.hr.repository.EmployeeRepository;
  *
  */
 @Repository
-public class EmployeeRepositoryAdapter implements EmployeeRepository {
+@Persistence(PersistenceTarget.JPA_MYSQL)
+public class EmployeeRepositoryJpaAdapter implements EmployeeRepository {
 	@Autowired
 	private EmployeeJpaRepository empJpaRepo;
 
