@@ -6,12 +6,19 @@ import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Sharded;
 
 import com.example.hr.domain.Department;
 import com.example.validation.Iban;
 import com.example.validation.TcKimlikNo;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Document(collection = "employees")
+@Sharded(shardKey = "identity", immutableKey = true)
 public class EmployeeDocument {
 	@TcKimlikNo
 	@Id

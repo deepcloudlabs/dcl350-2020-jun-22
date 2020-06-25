@@ -15,6 +15,11 @@ import com.example.hr.meta.PersistenceTarget;
 import com.example.hr.repository.EmployeeMongoRepository;
 import com.example.hr.repository.EmployeeRepository;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Repository
 @Persistence(PersistenceTarget.MONGO)
 public class EmployeeRepositoryMongoAdapter implements EmployeeRepository{
