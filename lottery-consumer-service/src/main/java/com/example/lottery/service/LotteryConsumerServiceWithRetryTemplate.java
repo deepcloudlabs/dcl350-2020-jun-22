@@ -7,12 +7,11 @@ import org.springframework.retry.RecoveryCallback;
 import org.springframework.retry.RetryCallback;
 import org.springframework.retry.support.RetryTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.lottery.dto.LotteryResponse;
 
-@Service
+//@Service
 public class LotteryConsumerServiceWithRetryTemplate {
 	@Autowired
 	private RetryTemplate retryTemplate;

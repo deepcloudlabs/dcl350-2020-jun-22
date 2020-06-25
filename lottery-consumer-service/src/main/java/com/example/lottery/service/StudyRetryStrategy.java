@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.lottery.dto.LotteryResponse;
-import com.google.inject.Exposed;
 
 /**
  * 
