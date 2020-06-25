@@ -1,5 +1,8 @@
 package com.example.hr.application.business;
 
+import java.util.Optional;
+import java.util.UUID;
+
 import com.example.hr.application.EmployeeApplication;
 import com.example.hr.domain.Employee;
 import com.example.hr.domain.TcKimlikNo;
@@ -28,18 +31,19 @@ public class SimpleEmployeeApplication implements EmployeeApplication {
 	@Override
 	public boolean hireEmployee(Employee employee) {
 		employeeRepository.save(employee);
-		eventPushlisher.publishEvent(new EmployeeHiredEvent("", "employees", employee));
+		eventPushlisher.publishEvent(new EmployeeHiredEvent(UUID.randomUUID().toString(), "employees", employee));
 		return true;
 	}
 
 	@Override
-	public boolean fireEmployee(TcKimlikNo identity) {
+	public Optional<Employee> fireEmployee(TcKimlikNo identity) {
 		var employee = employeeRepository.findByIdentity(identity);
-		if (employee.isEmpty()) return false;
-		Employee emp = employee.get();
+		if (employee.isEmpty())
+			return Optional.empty();
+		var emp = employee.get();
 		employeeRepository.remove(emp);
-		eventPushlisher.publishEvent(new EmployeeFiredEvent("1", "employees", emp));
-		return true;
+		eventPushlisher.publishEvent(new EmployeeFiredEvent(UUID.randomUUID().toString(), "employees", emp));
+		return Optional.of(emp);
 	}
 
 }

@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Sharded;
 
 import com.example.hr.domain.Department;
 import com.example.validation.Iban;
-import com.example.validation.TcKimlikNo;
+import com.example.validation.TcKimlik;
 
 /**
  * 
@@ -20,7 +20,7 @@ import com.example.validation.TcKimlikNo;
 @Document(collection = "employees")
 @Sharded(shardKey = "identity", immutableKey = true)
 public class EmployeeDocument {
-	@TcKimlikNo
+	@TcKimlik
 	@Id
 	private String identity;
 	@Size(min = 5)

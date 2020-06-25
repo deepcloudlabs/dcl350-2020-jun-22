@@ -15,7 +15,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import com.example.hr.domain.Department;
 import com.example.validation.Iban;
-import com.example.validation.TcKimlikNo;
+import com.example.validation.TcKimlik;
 
 /**
  * 
@@ -28,7 +28,7 @@ import com.example.validation.TcKimlikNo;
 public class EmployeeEntity {
 	@Id
 	@Column(name = "identity")
-	@TcKimlikNo
+	@TcKimlik
 	private String identity;
 	@Size(min = 5)
 	private String fullname;
@@ -44,7 +44,7 @@ public class EmployeeEntity {
 	@Lob
 	@Column(columnDefinition = "longblob")
 	private byte[] photo;
-	@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.ORDINAL)
 	private Department department;
 
 	public EmployeeEntity() {

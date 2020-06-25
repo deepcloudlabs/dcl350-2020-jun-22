@@ -16,14 +16,17 @@ package com.example.hr.domain;
 // Ctrl + Shift + F (Format Source Code)   (Ctrl + Alt + L)
 public class Employee {
 	private static final Money MIN_SALARY = Money.of(3_000, MoneyCurrency.TL);
-	private final TcKimlikNo identityNo;
+	private TcKimlikNo identityNo;
 	private FullName fullname;
 	private Money salary;
 	private Iban iban;
-	private final BirthYear birthYear;
+	private BirthYear birthYear;
 	private Photo photo;
 	private boolean fulltime;
 	private Department department;
+
+	public Employee() {
+	}
 
 	public Employee(TcKimlikNo identityNo, FullName fullname, Money salary, Iban iban, BirthYear birthYear, Photo photo,
 			boolean fulltime, Department department) {
@@ -126,6 +129,12 @@ public class Employee {
 			throw new IllegalArgumentException("Already part-time");
 		this.fulltime = false;
 		this.decreaseSalary(50.);
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [identityNo=" + identityNo + ", fullname=" + fullname + ", salary=" + salary + ", iban=" + iban
+				+ ", birthYear=" + birthYear + ", fulltime=" + fulltime + ", department=" + department + "]";
 	}
 
 	public static class Builder {

@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 
 import com.example.hr.domain.Department;
 import com.example.validation.Iban;
-import com.example.validation.TcKimlikNo;
+import com.example.validation.TcKimlik;
 
 /**
  * 
@@ -15,7 +15,7 @@ import com.example.validation.TcKimlikNo;
  *
  */
 public class EmployeeRequest {
-	@TcKimlikNo
+	@TcKimlik
 	private String identity;
 	@Size(min = 6)
 	private String fullname;

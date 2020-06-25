@@ -16,7 +16,7 @@ import javax.validation.Payload;
 @Target({ ElementType.FIELD, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = TcKimlikNoValidator.class)
-public @interface TcKimlikNo {
+public @interface TcKimlik {
 	String message() default "{validation.identityNo}";
 
 	Class<?>[] groups() default {};

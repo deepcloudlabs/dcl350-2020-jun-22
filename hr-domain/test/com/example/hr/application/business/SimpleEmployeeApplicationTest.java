@@ -1,5 +1,6 @@
 package com.example.hr.application.business;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Optional;
@@ -73,9 +74,9 @@ class SimpleEmployeeApplicationTest {
 		Mockito.when(empRepo.findByIdentity(TcKimlikNo.of("40310900232"))).thenReturn(Optional.of(jack));
 		Mockito.doNothing().when(eventPublisher).publishEvent(new EmployeeFiredEvent("2", "employees", jack));
 		// 2. call exercise method
-		var success = app.fireEmployee(TcKimlikNo.of("40310900232"));
+		var emp = app.fireEmployee(TcKimlikNo.of("40310900232"));
 		// 3. Verification
-		assertTrue(success);
+		assertEquals(jack, emp.get());
 		// 4. destroy setup
 	}
 

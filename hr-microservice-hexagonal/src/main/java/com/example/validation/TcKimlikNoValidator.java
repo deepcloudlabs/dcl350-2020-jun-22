@@ -8,10 +8,10 @@ import javax.validation.ConstraintValidatorContext;
  * @author Binnur Kurt <binnur.kurt@gmail.com>
  *
  */
-public class TcKimlikNoValidator implements ConstraintValidator<TcKimlikNo, String> {
+public class TcKimlikNoValidator implements ConstraintValidator<TcKimlik, String> {
 
 	@Override
-	public void initialize(TcKimlikNo arg0) {
+	public void initialize(TcKimlik arg0) {
 	}
 
 	@Override

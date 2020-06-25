@@ -2,8 +2,10 @@ package com.example.hr.adapter;
 
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.hr.domain.Employee;
 import com.example.hr.domain.FullName;
@@ -24,21 +26,20 @@ import com.example.hr.repository.EmployeeRepository;
 public class EmployeeRepositoryJpaAdapter implements EmployeeRepository {
 	@Autowired
 	private EmployeeJpaRepository empJpaRepo;
+	@Autowired
+	private ModelMapper mapper;
 
 	@Override
 	public Optional<Employee> findByIdentity(TcKimlikNo identity) {
 		var emp = empJpaRepo.findById(identity.getValue());
 		if (emp.isPresent()) {
-			// EmployeeEntity -> Employee
-			Employee employee = new Employee.Builder(emp.get().getIdentity())
-					// TODO: set other fields of domain entity
-					.build();
-			return Optional.of(employee);
+			return Optional.of(mapper.map(emp.get(), Employee.class));
 		}
 		return Optional.empty();
 	}
 
 	@Override
+	@Transactional
 	public void save(Employee employee) {
 		EmployeeEntity entity = new EmployeeEntity();
 		entity.setIdentity(employee.getIdentityNo().getValue());
@@ -54,6 +55,7 @@ public class EmployeeRepositoryJpaAdapter implements EmployeeRepository {
 	}
 
 	@Override
+	@Transactional
 	public void remove(Employee employee) {
 		var identity = employee.getIdentityNo().getValue();
 		empJpaRepo.deleteById(identity);

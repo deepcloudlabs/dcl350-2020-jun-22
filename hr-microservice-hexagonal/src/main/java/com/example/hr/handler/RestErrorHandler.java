@@ -25,7 +25,7 @@ public class RestErrorHandler {
 	@ExceptionHandler(RuntimeException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	public RestErrorMessage handleException(Exception e) {
-		return new RestErrorMessage(100, e.getMessage(), "6b8038e5-3b8f-4230-bfe8-4de2c422469f");
+		return new RestErrorMessage(100, e.getClass().getName(), "6b8038e5-3b8f-4230-bfe8-4de2c422469f");
 	}
 
 	@ExceptionHandler(ConstraintViolationException.class)

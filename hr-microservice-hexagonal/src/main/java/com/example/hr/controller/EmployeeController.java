@@ -18,10 +18,11 @@ import org.springframework.web.context.annotation.RequestScope;
 
 import com.example.hr.application.EmployeeApplication;
 import com.example.hr.domain.Employee;
+import com.example.hr.domain.TcKimlikNo;
 import com.example.hr.dto.EmployeeRequest;
 import com.example.hr.dto.EmployeeResponse;
 import com.example.hr.orm.EmployeeEntity;
-import com.example.validation.TcKimlikNo;
+import com.example.validation.TcKimlik;
 
 /**
  * 
@@ -41,17 +42,18 @@ public class EmployeeController {
 
 	@PostMapping
 	public EmployeeResponse hireEmployee(@RequestBody @Validated EmployeeRequest request) {
-		employeeApplication.hireEmployee(mapper.map(request, Employee.class));
+		Employee emp = mapper.map(request, Employee.class);
+		employeeApplication.hireEmployee(emp);
 		return new EmployeeResponse("success");
 	}
 
 	@PutMapping("{identity}")
-	public void updateEmployee(@PathVariable @TcKimlikNo String identity, @Validated @RequestBody EmployeeEntity e) {
+	public void updateEmployee(@PathVariable @TcKimlik String identity, @Validated @RequestBody EmployeeEntity e) {
 
 	}
 
 	@PatchMapping("{identity}")
-	public void patchEmployee(@PathVariable @TcKimlikNo String identity, Map<String, Object> employee) {
+	public void patchEmployee(@PathVariable @TcKimlik String identity, Map<String, Object> employee) {
 		EmployeeEntity employeeEntity = null;
 		var clazz = EmployeeEntity.class;
 		employee.forEach((field, value) -> {
@@ -62,11 +64,11 @@ public class EmployeeController {
 		});
 	}
 
-	// @GetMapping
-
 	@DeleteMapping("{identity}")
-	public EmployeeResponse fireEmployee(@PathVariable @TcKimlikNo String identity) {
-		employeeApplication.fireEmployee(null);
-		return null;
+	public EmployeeResponse fireEmployee(@PathVariable @TcKimlik String identity) {
+		var removedEmp = employeeApplication.fireEmployee(TcKimlikNo.of(identity));
+		if (removedEmp.isPresent())
+			return new EmployeeResponse("success");
+		return new EmployeeResponse("fail");
 	}
 }
