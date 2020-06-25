@@ -9,7 +9,7 @@ public class BusinessEvent {
 	private String eventId;
 	private String topic;
 	private Object data;
-	
+
 	public BusinessEvent() {
 	}
 
@@ -23,20 +23,20 @@ public class BusinessEvent {
 		return eventId;
 	}
 
-	public String getTopic() {
-		return topic;
-	}
-
-	public Object getData() {
-		return data;
-	}
-
 	public void setEventId(String eventId) {
 		this.eventId = eventId;
 	}
 
+	public String getTopic() {
+		return topic;
+	}
+
 	public void setTopic(String topic) {
 		this.topic = topic;
+	}
+
+	public Object getData() {
+		return data;
 	}
 
 	public void setData(Object data) {

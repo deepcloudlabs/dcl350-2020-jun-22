@@ -6,9 +6,12 @@ package com.example.hr.events;
  *
  */
 public class BusinessEvent {
-	private final String eventId;
-	private final String topic;
-	private final Object data;
+	private String eventId;
+	private String topic;
+	private Object data;
+
+	public BusinessEvent() {
+	}
 
 	public BusinessEvent(String eventId, String topic, Object data) {
 		this.eventId = eventId;
@@ -20,12 +23,24 @@ public class BusinessEvent {
 		return eventId;
 	}
 
+	public void setEventId(String eventId) {
+		this.eventId = eventId;
+	}
+
 	public String getTopic() {
 		return topic;
 	}
 
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
+
 	public Object getData() {
 		return data;
+	}
+
+	public void setData(Object data) {
+		this.data = data;
 	}
 
 	@Override
