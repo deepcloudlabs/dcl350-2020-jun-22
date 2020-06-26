@@ -17,8 +17,8 @@ import com.example.hr.repository.EmployeeRepository;
  *
  */
 public class SimpleEmployeeApplication implements EmployeeApplication {
-	private EmployeeRepository employeeRepository;
-	private EventPushlisher eventPushlisher;
+	private EmployeeRepository employeeRepository; // SPI #1
+	private EventPushlisher eventPushlisher; // SPI #1
 
 	public void setEmployeeRepository(EmployeeRepository employeeRepository) {
 		this.employeeRepository = employeeRepository;
