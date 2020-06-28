@@ -9,6 +9,6 @@ import com.example.crm.document.Customer;
  * @author Binnur Kurt <binnur.kurt@gmail.com>
  *
  */
-public interface CustomerRepository extends MongoRepository<Customer, String> {
-
+public interface CustomerRepository extends MongoRepository<Customer, String>{
+	
 }

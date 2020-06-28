@@ -1,7 +1,8 @@
-package com.example.crm;
+package com.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 /**
  * 
@@ -9,10 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
-public class CrmMicroserviceApplication {
+@EnableZuulProxy
+public class GatewayZuluApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CrmMicroserviceApplication.class, args);
+		SpringApplication.run(GatewayZuluApplication.class, args);
 	}
 
 }

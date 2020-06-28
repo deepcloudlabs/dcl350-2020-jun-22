@@ -1,6 +1,5 @@
 package com.example.crm.service;
 
-import java.util.List;
 import java.util.Map;
 
 import com.example.crm.document.Customer;
@@ -10,11 +9,7 @@ import com.example.crm.document.Customer;
  * @author Binnur Kurt <binnur.kurt@gmail.com>
  *
  */
-public interface CustomerService {
-
-	List<Customer> findAllCustomers(int pagesize, int pageno);
-
-	Customer findCustomerByIdentity(String identity);
+public interface CustomerCommandService {
 
 	Customer createCustomer(Customer customer);
 

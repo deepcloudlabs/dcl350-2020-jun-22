@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
-public class CrmMicroserviceApplication {
+public class CrmMicroserviceEventSourcesingCqrsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CrmMicroserviceApplication.class, args);
+		SpringApplication.run(CrmMicroserviceEventSourcesingCqrsApplication.class, args);
 	}
 
 }

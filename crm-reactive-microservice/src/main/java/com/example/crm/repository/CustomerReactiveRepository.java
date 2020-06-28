@@ -8,6 +8,11 @@ import com.example.crm.document.Customer;
 
 import reactor.core.publisher.Flux;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public interface CustomerReactiveRepository extends ReactiveMongoRepository<Customer, String>{
 
 	@Query("{}")
