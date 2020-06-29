@@ -13,13 +13,18 @@ import org.springframework.web.socket.sockjs.client.SockJsClient;
 import org.springframework.web.socket.sockjs.client.Transport;
 import org.springframework.web.socket.sockjs.client.WebSocketTransport;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Configuration
 public class AppConfig {
 	@Bean
 	public WebSocketClient webSocketClient() {
 		return new StandardWebSocketClient();
 	}
-	
+
 	@Bean
 	public WebSocketStompClient webSocketStompClient(WebSocketClient client) {
 		List<Transport> transports = new ArrayList<>(1);

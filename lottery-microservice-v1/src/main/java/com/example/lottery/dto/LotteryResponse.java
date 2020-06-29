@@ -2,6 +2,11 @@ package com.example.lottery.dto;
 
 import java.util.List;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public class LotteryResponse {
 	private List<List<Integer>> numbers;
 

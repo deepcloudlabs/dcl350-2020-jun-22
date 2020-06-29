@@ -16,6 +16,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.example.lottery.filter.JwtTokenFilter;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -23,15 +28,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private UserDetailsService userDetailsService;
 	@Value("${security.jwt.token.secret-key}")
 	private String secret;
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		System.out.println("configurating security...");
 		http.csrf().disable().authorizeRequests().antMatchers("/signin").permitAll().anyRequest().authenticated().and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-		
-		
-		http.addFilterBefore(new JwtTokenFilter(userDetailsService, secret), UsernamePasswordAuthenticationFilter.class);
+
+		http.addFilterBefore(new JwtTokenFilter(userDetailsService, secret),
+				UsernamePasswordAuthenticationFilter.class);
 
 	}
 

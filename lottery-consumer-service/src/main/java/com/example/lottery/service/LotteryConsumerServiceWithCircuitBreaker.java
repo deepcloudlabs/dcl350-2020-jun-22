@@ -18,22 +18,23 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
  */
 @Service
 public class LotteryConsumerServiceWithCircuitBreaker {
-	// integration client -> http -> Rest API (server) 
-	//                               tomcat -> http/websocket (synchronous)               -> (thread pool)
-	                                                                // capacity
-	// reactive system               jetty -> http/websokcet  (event queue, asynchronous) -> (thread pool)
-	// Fixed Thread Pool   -> fixed (30) 
-	// Cached Thread Pool  -> variable 
-	@CircuitBreaker(name="lotterySrvCircuitBreaker", 
-			fallbackMethod = "getLotteryNumbersFallback")
+	// integration client -> http -> Rest API (server)
+	// tomcat -> http/websocket (synchronous) -> (thread pool)
+	// capacity
+	// reactive system jetty -> http/websokcet (event queue, asynchronous) ->
+	// (thread pool)
+	// Fixed Thread Pool -> fixed (30)
+	// Cached Thread Pool -> variable
+	@CircuitBreaker(name = "lotterySrvCircuitBreaker", fallbackMethod = "getLotteryNumbersFallback")
 	public LotteryResponse getNumbers() {
 		System.err.println("Calling lottery service from LotteryClientWithCircuitBreaker...");
 		RestTemplate rt = new RestTemplate();
 		return rt.getForObject("http://localhost:8001/lottery/api/v1/numbers?column=10", LotteryResponse.class);
 	}
-	
+
 	public LotteryResponse getLotteryNumbersFallback(Exception e) {
 		System.err.println("getLotteryNumbersFallback()");
-		return new LotteryResponse(IntStream.range(0, 5).mapToObj(i -> List.of(1,2,3,4,5,6)).collect(Collectors.toList()));
+		return new LotteryResponse(
+				IntStream.range(0, 5).mapToObj(i -> List.of(1, 2, 3, 4, 5, 6)).collect(Collectors.toList()));
 	}
 }

@@ -13,7 +13,8 @@ public class FallbackLotteryService implements LotteryService {
 
 	@Override
 	public LotteryResponse getLotteryNumbers(int column) {
-		return new LotteryResponse(IntStream.range(0, column).mapToObj(i -> List.of(1,2,3,4,5,6)).collect(Collectors.toList()));
+		return new LotteryResponse(
+				IntStream.range(0, column).mapToObj(i -> List.of(1, 2, 3, 4, 5, 6)).collect(Collectors.toList()));
 	}
 
 }

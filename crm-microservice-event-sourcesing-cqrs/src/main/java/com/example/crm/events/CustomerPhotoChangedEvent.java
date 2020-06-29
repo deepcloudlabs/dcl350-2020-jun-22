@@ -20,5 +20,5 @@ public class CustomerPhotoChangedEvent extends CustomerBaseEvent {
 	public String toString() {
 		return "CustomerPhotoChangedEvent []";
 	}
-	
+
 }

@@ -2,6 +2,11 @@ package com.example.lottery.dto;
 
 import javax.validation.constraints.NotNull;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public class WebUser {
 	@NotNull
 	private String username;

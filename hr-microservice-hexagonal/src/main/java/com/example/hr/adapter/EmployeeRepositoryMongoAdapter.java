@@ -22,23 +22,24 @@ import com.example.hr.repository.EmployeeRepository;
  */
 @Repository
 @Persistence(PersistenceTarget.MONGO)
-public class EmployeeRepositoryMongoAdapter implements EmployeeRepository{
+public class EmployeeRepositoryMongoAdapter implements EmployeeRepository {
 	@Autowired
 	private EmployeeMongoRepository empRepo;
 	@Autowired
 	private ModelMapper mapper;
-	
+
 	@Override
 	public Optional<Employee> findByIdentity(TcKimlikNo identity) {
 		Optional<EmployeeDocument> empDoc = empRepo.findById(identity.getValue());
-		if (!empDoc.isEmpty()) return Optional.empty();
+		if (!empDoc.isEmpty())
+			return Optional.empty();
 		Employee employee = mapper.map(empDoc.get(), Employee.class);
 		return Optional.of(employee);
 	}
 
 	@Override
 	public void save(Employee employee) {
-		//EmployeeDocument empDoc= mapper.map(employee, EmployeeDocument.class);
+		// EmployeeDocument empDoc= mapper.map(employee, EmployeeDocument.class);
 		EmployeeDocument employeeDocument = new EmployeeDocument();
 		employeeDocument.setIdentity(employee.getIdentityNo().getValue());
 		FullName fullname = employee.getFullname();
@@ -54,7 +55,7 @@ public class EmployeeRepositoryMongoAdapter implements EmployeeRepository{
 
 	@Override
 	public void remove(Employee employee) {
-		empRepo.deleteById(employee.getIdentityNo().getValue());		
+		empRepo.deleteById(employee.getIdentityNo().getValue());
 	}
 
 }

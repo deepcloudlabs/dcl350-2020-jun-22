@@ -2,8 +2,13 @@ package com.example.event;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public class TradeEvent {
-	private String id;	
+	private String id;
 	@JsonProperty("s")
 	private String symbol;
 	@JsonProperty("p")
@@ -91,6 +96,5 @@ public class TradeEvent {
 		return "TradeEvent [id=" + id + ", symbol=" + symbol + ", price=" + price + ", quantity=" + quantity
 				+ ", timestamp=" + timestamp + ", eventId=" + eventId + ", askId=" + askId + ", bidId=" + bidId + "]";
 	}
-
 
 }

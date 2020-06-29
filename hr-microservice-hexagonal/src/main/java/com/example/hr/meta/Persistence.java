@@ -13,8 +13,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
  *
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.PARAMETER, ElementType.FIELD})
+@Target({ ElementType.TYPE, ElementType.PARAMETER, ElementType.FIELD })
 @Qualifier
 public @interface Persistence {
-	PersistenceTarget value() ;
+	PersistenceTarget value();
 }

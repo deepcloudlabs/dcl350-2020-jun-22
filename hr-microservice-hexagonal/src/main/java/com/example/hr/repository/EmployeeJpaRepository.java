@@ -13,5 +13,5 @@ import com.example.hr.orm.EmployeeEntity;
  *
  */
 public interface EmployeeJpaRepository extends JpaRepository<EmployeeEntity, String> {
-	List<EmployeeDocument> findByBirthYearBetween(int fromYear,int toYear);		
+	List<EmployeeDocument> findByBirthYearBetween(int fromYear, int toYear);
 }

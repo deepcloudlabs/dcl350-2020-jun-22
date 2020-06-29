@@ -14,6 +14,7 @@ import com.example.crm.events.CustomerBaseEvent;
  */
 public interface BaseEventRepository extends MongoRepository<CustomerBaseEvent, String> {
 	List<CustomerBaseEvent> findAll(PageRequest page);
+
 	List<CustomerBaseEvent> findAllByIdentity(String identity);
 
 }

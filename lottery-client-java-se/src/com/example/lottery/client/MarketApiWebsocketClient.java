@@ -6,12 +6,17 @@ import java.net.http.WebSocket;
 import java.net.http.WebSocket.Listener;
 import java.util.concurrent.CompletionStage;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public class MarketApiWebsocketClient {
 	private static final String URL = "wss://stream.binance.com:9443/ws/btcusdt@trade";
 
 	public static void main(String[] args) throws InterruptedException {
 		Listener listener = new MarketWebsocketListener();
-		HttpClient.newHttpClient().newWebSocketBuilder().buildAsync(URI.create(URL),listener);
+		HttpClient.newHttpClient().newWebSocketBuilder().buildAsync(URI.create(URL), listener);
 		Thread.sleep(60_000);
 	}
 }
@@ -26,9 +31,9 @@ class MarketWebsocketListener implements Listener {
 
 	@Override
 	public CompletionStage<?> onText(WebSocket webSocket, CharSequence data, boolean last) {
-            System.err.println(data);
-            webSocket.request(1);
-            return null;
+		System.err.println(data);
+		webSocket.request(1);
+		return null;
 	}
 
 	@Override
@@ -39,7 +44,7 @@ class MarketWebsocketListener implements Listener {
 
 	@Override
 	public void onError(WebSocket webSocket, Throwable error) {
-		System.err.println("An error has occured: "+error.getMessage()+" at session "+webSocket);
+		System.err.println("An error has occured: " + error.getMessage() + " at session " + webSocket);
 	}
-	
+
 }

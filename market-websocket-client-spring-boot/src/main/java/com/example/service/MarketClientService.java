@@ -15,13 +15,22 @@ import org.springframework.web.socket.client.WebSocketClient;
 import com.example.event.TradeEvent;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Service
 public class MarketClientService implements WebSocketHandler {
-	@Autowired private WebSocketClient websocketClient;
-	@Value("${market.url}") private String marketUrl;
-	@Autowired private ObjectMapper mapper;
-	@Autowired private ApplicationEventPublisher eventPublisher;
-	
+	@Autowired
+	private WebSocketClient websocketClient;
+	@Value("${market.url}")
+	private String marketUrl;
+	@Autowired
+	private ObjectMapper mapper;
+	@Autowired
+	private ApplicationEventPublisher eventPublisher;
+
 	@PostConstruct
 	public void init() {
 		websocketClient.doHandshake(this, marketUrl);
@@ -35,13 +44,13 @@ public class MarketClientService implements WebSocketHandler {
 	@Override
 	public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
 		String payload = message.getPayload().toString();
-		TradeEvent trade = mapper.readValue(payload,TradeEvent.class); 
+		TradeEvent trade = mapper.readValue(payload, TradeEvent.class);
 		eventPublisher.publishEvent(trade);
 	}
 
 	@Override
 	public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
-		System.err.println("An error has occurred: "+exception.getMessage());
+		System.err.println("An error has occurred: " + exception.getMessage());
 	}
 
 	@Override
@@ -53,6 +62,5 @@ public class MarketClientService implements WebSocketHandler {
 	public boolean supportsPartialMessages() {
 		return false;
 	}
-	
-	
+
 }

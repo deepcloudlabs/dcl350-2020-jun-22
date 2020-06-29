@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.lottery.dto.LotteryResponse;
 
-@FeignClient(name="lottery",fallback = FallbackLotteryService.class)
+@FeignClient(name = "lottery", fallback = FallbackLotteryService.class)
 public interface LotteryService {
 	@GetMapping("/lottery/api/v1/numbers")
 	LotteryResponse getLotteryNumbers(@RequestParam int column);

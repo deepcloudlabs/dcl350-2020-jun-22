@@ -5,10 +5,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Document(collection = "trades") 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
+@Document(collection = "trades")
 public class TradeEvent {
 	@Id
-	private String id;	
+	private String id;
 	@JsonProperty("s")
 	private String symbol;
 	@JsonProperty("p")
@@ -96,7 +101,5 @@ public class TradeEvent {
 		return "TradeEvent [id=" + id + ", symbol=" + symbol + ", price=" + price + ", quantity=" + quantity
 				+ ", timestamp=" + timestamp + ", eventId=" + eventId + ", askId=" + askId + ", bidId=" + bidId + "]";
 	}
-
-
 
 }

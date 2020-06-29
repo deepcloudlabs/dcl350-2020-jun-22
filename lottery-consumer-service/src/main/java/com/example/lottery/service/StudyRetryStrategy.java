@@ -20,7 +20,7 @@ import com.example.lottery.dto.LotteryResponse;
 @Service
 public class StudyRetryStrategy {
 
-	@Retryable(value = { SocketTimeoutException.class,                  // exponential backoff: 2^{n} * 3 seconds
+	@Retryable(value = { SocketTimeoutException.class, // exponential backoff: 2^{n} * 3 seconds
 			SocketException.class }, maxAttempts = 3, backoff = @Backoff(multiplier = 2, delay = 3_000))
 	public LotteryResponse getNumbers() {
 		System.err.println("Calling lottery service from StudyRetryStrategy...");

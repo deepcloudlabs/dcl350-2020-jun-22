@@ -13,6 +13,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.hr.events.BusinessEvent;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Service
 public class SimpleKafkaConsumer {
 	private KafkaConsumer<String, BusinessEvent> kafkaConsumer;

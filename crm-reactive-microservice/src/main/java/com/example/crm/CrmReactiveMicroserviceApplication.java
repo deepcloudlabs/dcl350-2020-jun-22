@@ -20,17 +20,17 @@ import com.example.crm.repository.CustomerReactiveRepository;
 @EnableWebFlux
 @EnableReactiveMongoRepositories
 public class CrmReactiveMicroserviceApplication implements ApplicationRunner {
-	@Autowired private CustomerReactiveRepository customerReactiveRepository;
-	
+	@Autowired
+	private CustomerReactiveRepository customerReactiveRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(CrmReactiveMicroserviceApplication.class, args);
 	}
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		customerReactiveRepository.findAllFlux(PageRequest.of(0, 10))
-		                 .subscribe(System.err::println);
-		
+		customerReactiveRepository.findAllFlux(PageRequest.of(0, 10)).subscribe(System.err::println);
+
 	}
 
 }

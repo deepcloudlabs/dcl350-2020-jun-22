@@ -15,6 +15,11 @@ import org.springframework.web.socket.messaging.WebSocketStompClient;
 
 import com.example.event.TradeEvent;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Service
 public class MarketStompClientService implements StompSessionHandler {
 	@Autowired

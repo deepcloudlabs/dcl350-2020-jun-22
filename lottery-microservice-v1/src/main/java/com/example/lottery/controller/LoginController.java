@@ -14,6 +14,11 @@ import org.springframework.web.context.annotation.RequestScope;
 import com.example.lottery.dto.WebUser;
 import com.example.lottery.provider.JwtTokenProvider;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @RestController
 @RequestScope
 @RequestMapping("signin")

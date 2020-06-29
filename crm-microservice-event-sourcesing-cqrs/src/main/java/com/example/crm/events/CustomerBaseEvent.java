@@ -22,11 +22,11 @@ public class CustomerBaseEvent {
 	private long sequenceId;
 	private String sourceId;
 	private String identity;
-    @LastModifiedDate
-    private Date lastModified;
-    @CreatedDate
-    private Date createdAt;
-    
+	@LastModifiedDate
+	private Date lastModified;
+	@CreatedDate
+	private Date createdAt;
+
 	public CustomerBaseEvent() {
 	}
 
@@ -70,24 +70,24 @@ public class CustomerBaseEvent {
 		this.identity = identity;
 	}
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-    public Date getLastModified() {
-        return lastModified;
-    }
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+	public Date getLastModified() {
+		return lastModified;
+	}
 
-    public void setLastModified(Date lastModified) {
-        this.lastModified = lastModified;
-    }
+	public void setLastModified(Date lastModified) {
+		this.lastModified = lastModified;
+	}
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-    public Date getCreatedAt() {
-        return createdAt;
-    }
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+	public Date getCreatedAt() {
+		return createdAt;
+	}
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-    
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
 	@Override
 	public String toString() {
 		return "CustomerBaseEvent [eventId=" + eventId + ", conversationId=" + conversationId + ", sequenceId="
