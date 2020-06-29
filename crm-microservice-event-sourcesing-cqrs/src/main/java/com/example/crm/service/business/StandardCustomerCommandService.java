@@ -52,15 +52,6 @@ public class StandardCustomerCommandService implements CustomerCommandService {
 	}
 
 	@Override
-	public Customer updateCustomerByIdentity(String identity, Customer customer) {
-		var managedCustomer = customerRepository.findById(identity);
-		if (managedCustomer.isPresent()) {
-			return customerRepository.save(customer);
-		}
-		throw new IllegalArgumentException("Customer does not exist");
-	}
-
-	@Override
 	public Customer updateCustomerByIdentity(String identity, Map<String, Object> request) {
 		var managedCustomer = customerRepository.findById(identity);
 		if (managedCustomer.isPresent()) {
